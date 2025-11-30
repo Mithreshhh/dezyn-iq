@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Interior Design System - Poliform Inspired */
+
+@layer base {
+  :root {
+    /* Primary Colors - Luxury Black & White */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
+
+    /* Deep Luxury Black */
+    --luxury-black: 0 0% 5%;
+    --luxury-black-foreground: 0 0% 98%;
+
+    /* Sand/Beige Tones */
+    --sand: 32 25% 88%;
+    --sand-dark: 32 20% 75%;
+    --sand-foreground: 0 0% 15%;
+
+    /* Gold Accent */
+    --gold: 24 100% 60%;
+    --gold-foreground: 0 0% 98%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 0 0% 5%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 32 25% 88%;
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 24 100% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 5%;
+
+    --radius: 1.25rem;
+
+    /* Custom Properties */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-luxury: 0 20px 60px -15px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 25px 70px -15px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    /* Lenis smooth scroll will handle scrolling behavior */
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+
+  /* Premium Button Styles */
+  .btn-luxury {
+    @apply px-8 py-3 rounded-full text-white transition-all duration-400 text-sm font-medium tracking-wide;
+    background-color: #ff9934;
+    border: 2px solid #ff9934;
+  }
+  
+  .btn-luxury:hover {
+    background-color: #e88829;
+    border-color: #e88829;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 153, 52, 0.3);
+  }
+
+  .btn-luxury-light {
+    @apply px-8 py-3 rounded-full border border-white text-white hover:bg-white hover:text-luxury-black transition-all duration-400 text-sm font-medium tracking-wide;
+  }
+
+  /* Glassmorphism */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 rounded-3xl;
+  }
+
+  /* Image Overlay */
+  .image-overlay {
+    @apply relative overflow-hidden rounded-3xl;
+  }
+
+  .image-overlay::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-400;
+  }
+
+  .image-overlay:hover::after {
+    @apply opacity-100;
+  }
+
+  /* Scroll Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Luxury Hover Scale */
+  .hover-scale {
+    @apply transition-transform duration-500 ease-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* Underline accent for links */
+  .accent-underline {
+    position: relative;
+  }
+  
+  .accent-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ff9934;
+    transition: width 0.3s ease;
+  }
+  
+  .accent-underline:hover::after {
+    width: 100%;
+  }
+}
